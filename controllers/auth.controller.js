@@ -3,17 +3,23 @@ import jwt from 'jsonwebtoken';
 import { User } from '../models/user.model.js';
 
 export const signup = async (req, res) => {
-    try{
-        const {username, email, password} = req.body;
+    try {
+        const { username, email, password } = req.body;
 
-        const existing = await User.findOne({email});
-        if(existing) return res.status(400).json({message: 'User already exists'});
+        const existing = await User.findOne({ email });
+        if (existing) {
+            console.log("⚠️ User already exists");
+            return res.status(400).json({ message: 'User already exists' });
+        }
 
         const hashed = await bcrypt.hash(password, 10);
-        const newUser = await User.create({username, email, password: hashed});
-        res.status(201).json({message: 'User registered sucessfully'});
-    }catch(err){
-        res.status(500).json({error: 'signup failed'});
+        const newUser = await User.create({ username, email, password: hashed });
+
+        console.log("New user created:", newUser);
+        res.status(201).json({ message: 'User registered successfully' });
+    } catch (err) {
+        console.error("Signup error:", err); 
+        res.status(500).json({ error: 'Signup failed' });
     }
 };
 
