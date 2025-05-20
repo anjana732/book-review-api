@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
+import authRoutes from './routes/auth.route.js'
 
 dotenv.config();
 
@@ -14,6 +15,8 @@ connectDB()
     app.listen(PORT, ()=>{
         console.log(`Server is running on ${PORT}`);
     })
+
+    app.use('/api/auth', authRoutes);
 })
 .catch(()=>{
     console.log("DB connection failed");
