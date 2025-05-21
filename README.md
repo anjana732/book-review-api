@@ -261,5 +261,21 @@ http://localhost:3000/api/:<your_review_id>
 ```
 
 
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 💬 Contact
+
+For any queries or feedback, please contact:  
+**Anjana Singh**  
+📧 anjanasingh1257@gmail.com  
+🌐 [LinkedIn](https://www.linkedin.com/in/anjana732) 
+
+---
+
+Thank you for checking out this project! 🌟
 
 
