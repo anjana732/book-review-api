@@ -49,43 +49,64 @@ This project uses MongoDB as its database. Below is a brief overview of the prim
 ### 1.  Users Collection
 
 {
+
   "_id": ObjectId,
+  
   "username": String,
+  
   "email": String,
+  
   "password": String (hashed),
+  
   "createdAt": Date,
+  
   "updatedAt": Date
+  
 }
 
 ### 2. Books Collection
 
 {
+
   "_id": ObjectId,
+  
   "title": String,
+  
   "author": String,
+  
   "genre": String,
+  
   "description": String,
+  
   "createdAt": Date,
+  
   "updatedAt": Date
+
 }
 
 ### 3.  Reviews Collection
 
 {
+
   "_id": ObjectId,
+  
   "user": ObjectId (ref: User),
+  
   "book": ObjectId (ref: Book),
+  
   "rating": Number (1–5),
+  
   "comment": String,
+  
   "createdAt": Date,
+  
   "updatedAt": Date
+  
 }
 
 Below is the Entity Relationship (ER) diagram representing the core schema of this project:
 
-**Sample example**
-
-<img src="/Asset/ERDiagram.png" alt="Screenshot" width="800" height="400">
+<img src="/Asset/ERDiagram.png" alt="Screenshot" width="400" height="500">
 
 ## 📮 API Endpoints
 ### 🔐 Auth Routes
