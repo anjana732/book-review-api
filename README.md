@@ -225,6 +225,10 @@ In the `Body tab`, select `raw` and choose `JSON format`, then provide the follo
    "description": "your_book_description"
 }
 ```
+**Sample example**
+
+<img src="/Asset/createBook.jpg" alt="Screenshot" width="800" height="400">
+
 ### 2. **Get All Books** – Public Route
 
 Select the GET method and paste the following URL into the URL section of Postman. It will fetch all the book records from the database.
@@ -235,6 +239,10 @@ http://localhost:3000/api/books
 
 No request body and headers are required.
 
+**Sample example**
+
+<img src="/Asset/getBook.jpg" alt="Screenshot" width="800" height="400">
+
 ### 3. **Get Book by ID** – Public Route
 
 Select the GET method and replace :id with a valid book ID in the URL section of Postman. It will fetch the book's details including its reviews and ratings.
@@ -242,6 +250,10 @@ Select the GET method and replace :id with a valid book ID in the URL section of
 ```bash
 http://localhost:3000/api/books/:<your_book_id>
 ```
+**Sample example**
+
+<img src="/Asset/getBookbyId.jpg" alt="Screenshot" width="800" height="400">
+
 ### 4. **Search Books by Title or Author** – Public Route
 
 Select the GET method and provide the search term using the query parameter q. Searches for matching book titles or authors.
@@ -249,6 +261,9 @@ Select the GET method and provide the search term using the query parameter q. S
 ```bash
 http://localhost:3000/api/books/search?q=<search_term>
 ```
+**Sample example**
+
+<img src="/Asset/getBookByTitleandAuthor.jpg" alt="Screenshot" width="800" height="400">
 
 ## ✍️ Review APIs
 
@@ -274,6 +289,10 @@ In the Body tab, select raw and choose JSON format, then provide the following p
 ```
  Constraint: A user can only submit one review per book. Attempting multiple reviews will return an error.
 
+ **Sample example**
+
+<img src="/Asset/getBook.jpg" alt="Screenshot" width="800" height="400">
+
 ### 2. **Update a Review** – Protected Route
 
 Select the PUT method and replace :reviewId with a valid review ID in the URL section of Postman. It allows the review to be updated.
@@ -291,6 +310,10 @@ Provide the new content in the Body tab:
 }
 ```
 
+**Sample example**
+
+<img src="/Asset/getBook.jpg" alt="Screenshot" width="800" height="400">
+
 ### 3. **Delete a Review** – Protected Route
 
 Select the DELETE method and replace :reviewId with a valid review ID in the URL section of Postman. It removes the review.
@@ -298,7 +321,9 @@ Select the DELETE method and replace :reviewId with a valid review ID in the URL
 ```bash
 http://localhost:3000/api/:<your_review_id>
 ```
+**Sample example**
 
+<img src="/Asset/getBook.jpg" alt="Screenshot" width="800" height="400">
 
 ## 📄 License
 
