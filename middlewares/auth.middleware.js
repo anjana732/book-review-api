@@ -12,13 +12,12 @@ export const verifyToken = (req, res, next) => {
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        // Attach user info to request for downstream use
         req.user = {
             userId: decoded.userId,
             email: decoded.email
         };
 
-        next(); // Proceed to controller
+        next();
     } catch (err) {
         return res.status(403).json({ message: 'Invalid or expired token' });
     }
