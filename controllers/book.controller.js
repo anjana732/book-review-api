@@ -66,3 +66,28 @@ export const getBookById = async (req, res) => {
         res.status(500).json({ message: 'Failed to fetch book details', error: err.message });
     }
 };
+
+//  Additional Feature: --- GET /search – Search books by title or author (partial and case-insensitive)
+
+export const searchBooks = async (req, res) => {
+    try {
+        const { q } = req.query;
+
+        if (!q) {
+            return res.status(400).json({ message: 'Search query is required' });
+        }
+
+        const regex = new RegExp(q, 'i');
+
+        const books = await Book.find({
+            $or: [
+                { title: regex },
+                { author: regex }
+            ]
+        }).sort({ createdAt: -1 });
+
+        res.status(200).json({ total: books.length, books });
+    } catch (err) {
+        res.status(500).json({ message: 'Failed to search books', error: err.message });
+    }
+};

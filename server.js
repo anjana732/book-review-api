@@ -16,7 +16,7 @@ connectDB()
 .then(()=>{
     app.use('/api/auth', authRoutes);
     app.use('/api/books', bookRoutes);
-    app.use('/api/review', reviewRoutes);
+    app.use('/api', reviewRoutes);
     app.listen(PORT, ()=>{
         console.log(`Server is running on ${PORT}`);
     })
