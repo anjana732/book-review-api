@@ -114,3 +114,24 @@ In the `Body tab`, select `raw` and choose `JSON format`, then provide the follo
   "password": "<your_password>"
 }
 ```
+**Sample example**
+![Sign up screenshot](/Asset/signup.jpg)
+
+2. **Login**
+
+Select the POST method and paste the following URL into the URL section of Postman:
+```bash
+http://localhost:3000/api/auth/login  
+```
+In the `Body tab`, select `raw` and choose `JSON format`, then provide the following example payload:
+
+```json
+{
+  "email": "<your_email@example.com>",
+  "password": "<your_password>"
+}
+```
+3. **Get Access Token**
+
+Once login is done successfully, The access token will be generated. This token will be valid for next 15 minute. Keep it to login to protected route.
+
