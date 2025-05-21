@@ -2,6 +2,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { User } from '../models/user.model.js';
 
+//Sign up functionality implemented
+
 export const signup = async (req, res) => {
     try {
         const { username, email, password } = req.body;
@@ -23,6 +25,7 @@ export const signup = async (req, res) => {
     }
 };
 
+//Login functionality implemented
 export const login = async (req, res) =>{
     try{
         const {email, password} = req.body;
@@ -34,14 +37,50 @@ export const login = async (req, res) =>{
         
         if(!isMatch) return res.status(401).json({message: 'Invalid Credential'});
 
-        const token = jwt.sign(
+        const accessToken = jwt.sign(
             {userId: user._id, email: user.email},
-            process.env.JWT_SECRET,
-            {expiresIn: '15m'}
+            process.env.ACCESS_TOKEN_SECRET,
+            {expiresIn: process.env.ACCESS_TOKEN_EXPIRY}
         );
 
-        res.status(200).json({token});
+        const refreshToken = jwt.sign(
+            {userId: user._id, email:user.email },
+            process.env.REFRESH_TOKEN_SECRET,
+            {expiresIn: process.env.REFRESH_TOKEN_EXPIRY}
+        );
+
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'Strict',
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+
+        res.status(200).json({accessToken});
     }catch(err){
         res.send(500).json({error: 'Login failed'});
     }
 };
+
+// code to regenerate access token using refresh token
+
+export const refreshAccessToken = (req, res) => {
+    try{
+        const token = req.cookies.refreshToken;
+        if(!token) return res.status(401).json({message: 'No refresh token provided'});
+
+        const decoded = jwt.verify(token, process.env.REFRESH_TOKEN_SECRET);
+
+        const accessToken = jwt.sign(
+            {userId: decoded.userId, email: decoded.email},
+            process.env.ACCESS_TOKEN_SECRET,
+            {expiresIn: process.env.ACCESS_TOKEN_EXPIRY}
+
+        );
+
+        res.status(200).json({accessToken});
+    }catch(err){
+        console.log("Refresh token error", err);
+        return res.status(403).json({message: 'Invalid or expired refresh token'})
+    }
+}
