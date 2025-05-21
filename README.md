@@ -42,6 +42,45 @@ node server.js
 ```
 Server will be running at: http://localhost:3000
 
+## 🗂️ Database Schema
+
+This project uses MongoDB as its database. Below is a brief overview of the primary collections and their fields
+
+### 1.  Users Collection
+
+{
+  "_id": ObjectId,
+  "username": String,
+  "email": String,
+  "password": String (hashed),
+  "role": String, // default: "user"
+  "createdAt": Date,
+  "updatedAt": Date
+}
+
+### 2. Books Collection
+
+{
+  "_id": ObjectId,
+  "title": String,
+  "author": String,
+  "genre": String,
+  "description": String,
+  "createdAt": Date,
+  "updatedAt": Date
+}
+
+### 3.  Reviews Collection
+
+{
+  "_id": ObjectId,
+  "user": ObjectId (ref: User),
+  "book": ObjectId (ref: Book),
+  "rating": Number (1–5),
+  "comment": String,
+  "createdAt": Date,
+  "updatedAt": Date
+}
 
 ## 📮 API Endpoints
 ### 🔐 Auth Routes
@@ -229,8 +268,8 @@ In the Body tab, select raw and choose JSON format, then provide the following p
 
 ```json
 {
-  "rating": 4,
-  "comment": "Great book, highly recommended!"
+  "rating": "your rating between 1 to 5",
+  "comment":  "your_Comment"
 }
 ```
  Constraint: A user can only submit one review per book. Attempting multiple reviews will return an error.
@@ -247,8 +286,8 @@ Provide the new content in the Body tab:
 
 ```json
 {
-  "rating": 5,
-  "comment": "Updated my review after re-reading. Amazing book!"
+  "rating": "your rating between 1 to 5",
+  "comment": "your_Comment"
 }
 ```
 
@@ -264,8 +303,6 @@ http://localhost:3000/api/:<your_review_id>
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
 
 ## 💬 Contact
 
