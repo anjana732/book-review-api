@@ -10,3 +10,14 @@ A secure and modular RESTful API to manage books and user reviews. Includes JWT-
 4. CRUD operations for Books and Reviews
 5. Search books by exact title or author (case-insensitive)
 6. Pagination and sorting support
+
+🛠️ Tech Stack
+
+Backend: Node.js, Express.js
+Database: MongoDB, Mongoose
+Authentication: JWT, Bcrypt
+Environment Config: dotenv
+
+⚙️ Setup Instructions
+
+1. Clone the repository
