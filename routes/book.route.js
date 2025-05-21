@@ -1,6 +1,6 @@
 import express from 'express';
-import { createBook, getBooks, getBookById } from '../controllers/book.controller';
-import { verifyToken } from '../middlewares/auth.middleware';
+import { createBook, getBooks, getBookById } from '../controllers/book.controller.js';
+import { verifyToken } from '../middlewares/auth.middleware.js';
 
 const router = express.Router();
 

@@ -3,7 +3,7 @@ import { Review } from '../models/review.model.js';
 
 export const createBook = async (req, res) => {
     try{
-        const {title, author, genere, description} = req.body;
+        const {title, author, genre, description} = req.body;
         const createdBy = req.user.userId;
 
         const book = await Book.create({title, author, genre, description});
