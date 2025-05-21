@@ -115,13 +115,14 @@ In the `Body tab`, select `raw` and choose `JSON format`, then provide the follo
 }
 ```
 **Sample example**
-![Sign up screenshot](/Asset/signup.jpg)
-<img src="/Asset/signup.jpg" alt="Screenshot" width="40" height="30">
+
+<img src="/Asset/signup.jpg" alt="Screenshot" width="800" height="400">
 
 
 2. **Login**
 
 Select the POST method and paste the following URL into the URL section of Postman:
+
 ```bash
 http://localhost:3000/api/auth/login  
 ```
@@ -133,7 +134,31 @@ In the `Body tab`, select `raw` and choose `JSON format`, then provide the follo
   "password": "<your_password>"
 }
 ```
+**Sample example**
+
+<img src="/Asset/login.jpg" alt="Screenshot" width="800" height="400">
+
 3. **Get Access Token**
 
 Once login is done successfully, The access token will be generated. This token will be valid for next 15 minute. Keep it to login to protected route.
+
+**Sample example**
+
+<img src="/Asset/AccessToken.jpg" alt="Screenshot" width="800" height="400">
+
+4. **Generate access token from refresh token**
+
+Select the GET method and paste the following URL into the URL section of Postman:
+
+```bash
+http://localhost:3000/api/auth/refresh-token  
+```
+
+This will re-generate the access token
+
+**Sample example**
+
+<img src="/Asset/refreshToken.jpg" alt="Screenshot" width="800" height="400">
+
+## 🔑 Book APIs
 
