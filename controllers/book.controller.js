@@ -77,12 +77,12 @@ export const searchBooks = async (req, res) => {
             return res.status(400).json({ message: 'Search query is required' });
         }
 
-        const regex = new RegExp(q, 'i');
+        const escapedQuery = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
         const books = await Book.find({
             $or: [
-                { title: regex },
-                { author: regex }
+                { title: { $regex: `^${escapedQuery}$`, $options: 'i' } },
+                { author: { $regex: `^${escapedQuery}$`, $options: 'i' } }
             ]
         }).sort({ createdAt: -1 });
 
