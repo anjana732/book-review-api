@@ -116,6 +116,8 @@ In the `Body tab`, select `raw` and choose `JSON format`, then provide the follo
 ```
 **Sample example**
 ![Sign up screenshot](/Asset/signup.jpg)
+<img src="assets/screenshot.png" alt="Screenshot" width="40" height="30">
+
 
 2. **Login**
 
