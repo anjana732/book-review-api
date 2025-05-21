@@ -291,7 +291,7 @@ In the Body tab, select raw and choose JSON format, then provide the following p
 
  **Sample example**
 
-<img src="/Asset/getBook.jpg" alt="Screenshot" width="800" height="400">
+<img src="/Asset/addReview.jpg" alt="Screenshot" width="800" height="400">
 
 ### 2. **Update a Review** – Protected Route
 
@@ -312,7 +312,7 @@ Provide the new content in the Body tab:
 
 **Sample example**
 
-<img src="/Asset/getBook.jpg" alt="Screenshot" width="800" height="400">
+<img src="/Asset/updateReview.jpg" alt="Screenshot" width="800" height="400">
 
 ### 3. **Delete a Review** – Protected Route
 
@@ -323,11 +323,11 @@ http://localhost:3000/api/:<your_review_id>
 ```
 **Sample example**
 
-<img src="/Asset/getBook.jpg" alt="Screenshot" width="800" height="400">
+<img src="/Asset/deleteReview.jpg" alt="Screenshot" width="800" height="400">
 
-## 📄 License
+---
 
-This project is licensed under the [MIT License](LICENSE).
+Thank you for checking out this project! 🌟
 
 ## 💬 Contact
 
@@ -336,8 +336,7 @@ For any queries or feedback, please contact:
 📧 anjanasingh1257@gmail.com  
 🌐 [LinkedIn](https://www.linkedin.com/in/anjana732) 
 
----
 
-Thank you for checking out this project! 🌟
+
 
 
