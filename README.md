@@ -53,7 +53,6 @@ This project uses MongoDB as its database. Below is a brief overview of the prim
   "username": String,
   "email": String,
   "password": String (hashed),
-  "role": String, // default: "user"
   "createdAt": Date,
   "updatedAt": Date
 }
@@ -81,6 +80,12 @@ This project uses MongoDB as its database. Below is a brief overview of the prim
   "createdAt": Date,
   "updatedAt": Date
 }
+
+Below is the Entity Relationship (ER) diagram representing the core schema of this project:
+
+**Sample example**
+
+<img src="/Asset/ERDiagram.png" alt="Screenshot" width="800" height="400">
 
 ## 📮 API Endpoints
 ### 🔐 Auth Routes
@@ -332,7 +337,7 @@ Thank you for checking out this project! 🌟
 ## 💬 Contact
 
 For any queries or feedback, please contact:  
-**Anjana Singh**  
+**Anjana Kumari**  
 📧 anjanasingh1257@gmail.com  
 🌐 [LinkedIn](https://www.linkedin.com/in/anjana732) 
 
