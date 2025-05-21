@@ -210,3 +210,56 @@ Select the GET method and provide the search term using the query parameter q. S
 ```bash
 http://localhost:3000/api/books/search?q=<search_term>
 ```
+
+## ✍️ Review APIs
+
+All review-related endpoints are protected and require an access token via the Authorization header using the Bearer Token method.
+
+### 🧾 Steps to Communicate with Review APIs
+
+---
+
+### 1. **Create a Review for a Book** – Protected Route
+
+```bash
+http://localhost:3000/api/:<your_book_id>/reviews
+```
+
+In the Body tab, select raw and choose JSON format, then provide the following payload:
+
+```json
+{
+  "rating": 4,
+  "comment": "Great book, highly recommended!"
+}
+```
+ Constraint: A user can only submit one review per book. Attempting multiple reviews will return an error.
+
+### 2. **Update a Review** – Protected Route
+
+Select the PUT method and replace :reviewId with a valid review ID in the URL section of Postman. It allows the review to be updated.
+
+```bash
+http://localhost:3000/api/:<your_review_id>
+```
+
+Provide the new content in the Body tab:
+
+```json
+{
+  "rating": 5,
+  "comment": "Updated my review after re-reading. Amazing book!"
+}
+```
+
+### 3. **Delete a Review** – Protected Route
+
+Select the DELETE method and replace :reviewId with a valid review ID in the URL section of Postman. It removes the review.
+
+```bash
+http://localhost:3000/api/:<your_review_id>
+```
+
+
+
+
