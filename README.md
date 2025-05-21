@@ -160,5 +160,53 @@ This will re-generate the access token
 
 <img src="/Asset/refreshToken.jpg" alt="Screenshot" width="800" height="400">
 
-## 🔑 Book APIs
+## 📚 Book APIs
 
+Some endpoints are **protected** and require an **access token** via the `Authorization` header using the **Bearer Token** method. Public routes can be accessed without authentication.
+
+### 🧾 Steps to Communicate with Book APIs
+
+---
+
+### 1. **Create a New Book** – Protected Route
+
+Select the POST method and paste the following URL into the URL section of Postman. It will create a new book record in the database
+
+```bash
+http://localhost:3000/api/auth/refresh-token  
+```
+
+In the `Body tab`, select `raw` and choose `JSON format`, then provide the following example payload:
+
+```json
+{
+   "title":"your_book_title",
+   "author" :"your_book_author",
+   "genre": "your_book_genre",
+   "description": "your_book_description"
+}
+```
+### 2. **Get All Books** – Public Route
+
+Select the GET method and paste the following URL into the URL section of Postman. It will fetch all the book records from the database.
+
+```bash
+http://localhost:3000/api/books
+```
+
+No request body and headers are required.
+
+### 3. **Get Book by ID** – Public Route
+
+Select the GET method and replace :id with a valid book ID in the URL section of Postman. It will fetch the book's details including its reviews and ratings.
+
+```bash
+http://localhost:3000/api/books/:<your_book_id>
+```
+### 4. **Search Books by Title or Author** – Public Route
+
+Select the GET method and provide the search term using the query parameter q. Searches for matching book titles or authors.
+
+```bash
+http://localhost:3000/api/books/search?q=<search_term>
+```
